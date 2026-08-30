@@ -1,0 +1,33 @@
+---
+# BARR-C:2018 Conforming Clang-Format Configuration
+Language: Cpp
+BasedOnStyle: LLVM
+Standard: c++11
+
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+ColumnLimit: 100
+
+BreakBeforeBraces: Allman
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: Never
+AllowShortFunctionsOnASingleLine: None
+AllowShortBlocksOnASingleLine: Never
+AllowShortCaseLabelsOnASingleLine: false
+
+PointerAlignment: Right
+DerivePointerAlignment: false
+
+SpaceBeforeParens: ControlStatements
+SpaceAfterCStyleCast: false
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+
+IndentCaseLabels: true
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: false
+AlignConsecutiveDeclarations: false
+AlignOperands: Align
+AlignTrailingComments: true
+...

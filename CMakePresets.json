@@ -1,0 +1,91 @@
+{
+  "version": 5,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 25,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+        "BUILD_TESTING": "ON"
+      }
+    },
+    {
+      "name": "release",
+      "displayName": "Release Build",
+      "description": "Optimized release configuration with full telemetry and compute features",
+      "inherits": "base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "debug",
+      "displayName": "Debug Build",
+      "description": "Debug configuration with debug symbols and runtime assertions",
+      "inherits": "base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "sanitize",
+      "displayName": "Sanitizer Build",
+      "description": "Debug configuration with AddressSanitizer and UndefinedBehaviorSanitizer",
+      "inherits": "base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_C_FLAGS": "-fsanitize=address,undefined -fno-omit-frame-pointer"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "release",
+      "displayName": "Build Release",
+      "configurePreset": "release"
+    },
+    {
+      "name": "debug",
+      "displayName": "Build Debug",
+      "configurePreset": "debug"
+    },
+    {
+      "name": "sanitize",
+      "displayName": "Build with Sanitizers",
+      "configurePreset": "sanitize"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "release",
+      "displayName": "Test Release",
+      "configurePreset": "release",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "debug",
+      "displayName": "Test Debug",
+      "configurePreset": "debug",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "sanitize",
+      "displayName": "Test with Sanitizers",
+      "configurePreset": "sanitize",
+      "output": {
+        "outputOnFailure": true
+      }
+    }
+  ]
+}

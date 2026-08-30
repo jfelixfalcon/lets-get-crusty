@@ -1,0 +1,30 @@
+# Build directories and artifacts
+build/
+bin/
+lib/
+*.o
+*.obj
+*.a
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+
+# CMake files
+CMakeUserPresets.json
+compile_commands.json
+.cmake/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+CTestTestfile.cmake
+Makefile
+
+# IDE and editor settings
+.vscode/
+.idea/
+.clangd/
+.cache/
+*.swp
+*~
